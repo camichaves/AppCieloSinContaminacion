@@ -1,0 +1,75 @@
+<ion-menu side="start" menuId="first" contentId="main">
+  <div id="container" style="width: 70%">
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item style="border-bottom: 1px solid black; margin-left: 60px;">
+          <ion-fab-button color="dark" style="height: 60px; width: 60px; margin-bottom: 10px">
+            <ion-img *ngIf="categoria=='visita'" src="../../assets/imgs/visita-color.svg">
+            </ion-img>
+            <ion-img *ngIf="categoria!='visita'" src="../../assets/imgs/visita-blanco.svg">
+            </ion-img>
+          </ion-fab-button>
+          <p style="margin-left: 35px">
+            <b>Visita guiada</b>
+            <br>Recorrido virtual 360°
+          </p>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+      <ion-item style="border-bottom: 1px solid black; margin-left: 60px">
+        <ion-fab-button color="dark" style="height: 60px; width: 60px; margin-top: 10px; margin-bottom: 10px">
+        <ion-img *ngIf="categoria=='cesco'" src="../../assets/imgs/cesco-color.svg">
+        </ion-img>
+        <ion-img *ngIf="categoria!='cesco'" src="../../assets/imgs/cesco-blanco.svg">
+        </ion-img>
+        </ion-fab-button>
+        <p style="margin-left: 35px"><b>Conocé el CESCO</b><br>Inlcuye entrevista</p>
+      </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+      <ion-item style="border-bottom: 1px solid black; margin-left: 60px">
+        <ion-fab-button color="dark" style="height: 60px; width: 60px; margin-top: 10px; margin-bottom: 10px">
+          <ion-img *ngIf="categoria=='casleo'" src="../../assets/imgs/casleo-color.svg">
+          </ion-img>
+          <ion-img *ngIf="categoria!='casleo'" src="../../assets/imgs/casleo-blanco.svg">
+          </ion-img>
+        </ion-fab-button>
+        <p style="margin-left: 35px"><b>Conocé el CASLEO</b><br>Inlcuye entrevista</p>
+      </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+      <ion-item style="border-bottom: 1px solid black; margin-left: 60px">
+      <ion-fab-button color="dark" style="height: 60px; width: 60px; margin-top: 10px; margin-bottom: 10px">
+        <ion-img *ngIf="categoria=='pampa'" src="../../assets/imgs/pampa-color.svg">
+        </ion-img>
+        <ion-img *ngIf="categoria!='pampa'" src="../../assets/imgs/pampa-blanco.svg">
+        </ion-img>
+      </ion-fab-button>
+      <p style="margin-left: 35px"><b>Conocé La Pampa El Leoncito</b><br>Inlcuye entrevista</p>
+    </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+      <ion-item style="border-bottom: 1px solid black; margin-left: 60px">
+        <ion-fab-button color="dark" style="height: 60px; width: 60px; margin-top: 10px; margin-bottom: 10px">
+          <ion-img *ngIf="categoria=='mineria'" src="../../assets/imgs/mineria-color.svg">
+          </ion-img>
+          <ion-img *ngIf="categoria!='mineria'" src="../../assets/imgs/mineria-blanco.svg">
+          </ion-img>
+        </ion-fab-button>
+        <p style="margin-left: 35px"><b>Minería en San Juan</b><br>Video</p>
+      </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+      <ion-item style="border-bottom: transparent!important; margin-left: 60px">
+        <ion-fab-button color="dark" style="height: 60px; width: 60px; margin-top: 10px; margin-bottom: 10px">
+          <ion-img *ngIf="categoria=='pachon'" src="../../assets/imgs/pachon-color.svg">
+          </ion-img>
+          <ion-img *ngIf="categoria!='pachon'" src="../../assets/imgs/pachon-blanco.svg">
+          </ion-img>
+        </ion-fab-button>
+        <p style="margin-left: 35px"><b>Minería en San Juan</b><br>Video</p>
+      </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </div>
+</ion-menu>

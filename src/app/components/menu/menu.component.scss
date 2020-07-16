@@ -1,0 +1,17 @@
+#container {
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  position: absolute;
+  justify-items: center;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+ion-menu{
+  --width: 750px
+}

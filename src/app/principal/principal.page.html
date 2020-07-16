@@ -1,0 +1,76 @@
+<ion-menu class="my-custom-menu" side="start" menuId="first" contentId="home">
+  <div id="container" style="width: 80%;">
+    <ion-list style="font-family: Titillium">
+      <ion-menu-toggle style="width: 800px">
+        <ion-item (click)="cambiarCategoria('visita')" style="border-bottom: 1px solid black; margin-left: 60px;">
+          <ion-fab-button color="dark" class="fabicons">
+            <ion-img class="iconos" *ngIf="categoria=='visita'" src="../../assets/imgs/visita-color.svg">
+            </ion-img>
+            <ion-img class="iconos" *ngIf="categoria!='visita'" src="../../assets/imgs/visita-blanco.svg">
+            </ion-img>
+          </ion-fab-button>
+          <p>
+            <b>Visita guiada</b>
+            <br>Recorrido virtual 360°
+          </p>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="cambiarCategoria('cesco')" style="border-bottom: 1px solid black; margin-left: 60px">
+          <ion-fab-button color="dark" class="fabicons">
+            <ion-img class="iconos" *ngIf="categoria=='cesco'" src="../../assets/imgs/cesco-color.svg">
+            </ion-img>
+            <ion-img class="iconos" *ngIf="categoria!='cesco'" src="../../assets/imgs/cesco-blanco.svg">
+            </ion-img>
+          </ion-fab-button>
+          <p><b>Conocé el CESCO</b><br>Inlcuye entrevista</p>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="cambiarCategoria('casleo')" style="border-bottom: 1px solid black; margin-left: 60px">
+          <ion-fab-button color="medium" class="fabicons">
+            <ion-img class="iconos" *ngIf="categoria=='casleo'" src="../../assets/imgs/casleo-color.svg">
+            </ion-img>
+            <ion-img class="iconos" *ngIf="categoria!='casleo'" src="../../assets/imgs/casleo-blanco.svg">
+            </ion-img>
+          </ion-fab-button>
+          <p><b>Conocé el CASLEO</b><br>Inlcuye entrevista</p>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="cambiarCategoria('pampa')" style="border-bottom: 1px solid black; margin-left: 60px">
+          <ion-fab-button color="medium" class="fabicons">
+            <ion-img class="iconos" *ngIf="categoria=='pampa'" src="../../assets/imgs/pampa-color.svg">
+            </ion-img>
+            <ion-img class="iconos" *ngIf="categoria!='pampa'" src="../../assets/imgs/pampa-blanco.svg">
+            </ion-img>
+          </ion-fab-button>
+          <p><b>Conocé La Pampa El Leoncito</b><br>Inlcuye entrevista</p>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="cambiarCategoria('mineria')" style="border-bottom: 1px solid black; margin-left: 60px">
+          <ion-fab-button color="medium" class="fabicons">
+            <ion-img class="iconos" *ngIf="categoria=='mineria'" src="../../assets/imgs/mineria-color.svg">
+            </ion-img>
+            <ion-img class="iconos" *ngIf="categoria!='mineria'" src="../../assets/imgs/mineria-blanco.svg">
+            </ion-img>
+          </ion-fab-button>
+          <p><b>Minería en San Juan</b><br>Video</p>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="cambiarCategoria('pachon')" style="border-bottom: transparent!important; margin-left: 60px">
+          <ion-fab-button color="medium" class="fabicons">
+            <ion-img class="iconos" *ngIf="categoria=='pachon'" src="../../assets/imgs/pachon-color.svg">
+            </ion-img>
+            <ion-img class="iconos" *ngIf="categoria!='pachon'" src="../../assets/imgs/pachon-blanco.svg">
+            </ion-img>
+          </ion-fab-button>
+          <p><b>Minería en San Juan</b><br>Video</p>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </div>
+</ion-menu>
+<app-home  [opt]="categoria" (opcion)="cambiaCategoria($event)" id="home"></app-home>

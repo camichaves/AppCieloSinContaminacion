@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "Titillium";
+  src: url("src/assets/fonts/Titillium-Regular.otf");
+}
+ion-content{
+  font-family: 'Titillium';
+}
+
+.my-custom-menu {
+  --width: 750px;
+}
+
+#container {
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  position: absolute;
+  justify-items: center;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fabicons{
+  height: 60px; width: 70px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; --box-shadow: false
+}
+
+p{
+  margin-left: 35px; font-family: Titillium
+}
+
+.iconos{
+  border: 2px solid #000000!important; border-radius: 30px!important;
+}
+

@@ -1,0 +1,36 @@
+.gradiente{
+  //background: rgb(36,51,89)!important;
+  height: 100%!important;
+  background-image: linear-gradient(90deg, rgba(36,51,89,1) 0%, rgba(37,52,90,1) 40%, rgba(67,105,146,1) 100%)!important; /* Standard syntax (must be last) */
+
+}
+
+#grad1 {
+  height: 200px!important;
+  background-color: red !important; /* For browsers that do not support gradients */
+  background-image: linear-gradient(90deg, rgba(36,51,89,1) 0%, rgba(37,52,90,1) 40%, rgba(67,105,146,1) 100%)!important; /* Standard syntax (must be last) */
+}
+.img-logo-cargando{
+  height: 425px;
+}
+
+#container {
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  position: absolute;
+  justify-items: center;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card-cargando{
+  height: 90%;
+  margin-top: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
