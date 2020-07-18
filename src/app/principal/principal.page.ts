@@ -7,6 +7,16 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 })
 export class PrincipalPage implements OnInit {
   categoria;
+  title = 'Visita guiada';
+  titles = {
+    'visita':'Visita guiada',
+    'cesco' : 'Conocé el CESCO',
+    'casleo': 'Conocé el CASLEO',
+    'pampa' : 'Conocé La Pampa El Leoncito',
+    'mineria': 'Minería en San Juan',
+    'pachon' : 'El pachón'
+  }
+  
   constructor() { }
 
   ngOnInit() {
@@ -17,7 +27,7 @@ export class PrincipalPage implements OnInit {
   }
 
   cambiarCategoria(cat: string) {
-    console.log('Cambiando');
+    this.title =this.titles[cat];
     this.categoria = cat;
   }
 }

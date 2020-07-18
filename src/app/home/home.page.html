@@ -1,99 +1,62 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar style=" max-height: 55px;">
       <ion-buttons>
-        <ion-menu-button (click)="mandarEvento()" style="margin-left: 50px" color="medium" menu="first"></ion-menu-button>
+        <ion-menu-button (click)="mandarEvento()" style="margin-left: 90px;" color="medium" menu="first">
+          <img src="../../assets/icon/menu-toggle.png" alt="">
+        </ion-menu-button>
       </ion-buttons>
       <ion-label color="medium" slot="end" style="margin-right: 90px; font-family: Titillium">POR UN CIELO SIN CONTAMINACION</ion-label>
     </ion-toolbar>
   </ion-header>
   <div class="gradiente">
-<ion-grid>
-  <ion-row style="margin-left: 75px;">
-    <ion-col size="2" style="color: #f3f3f3; font-size: 20px"><p><b>Visita guiada</b></p></ion-col>
-  </ion-row>
-  <ion-row *ngIf="mostrarBotones" style="height: 340px; width: 100%; margin-top: -20px; margin-left: 27px">
-    <ion-col class="videocol">
-      <video #videoElement controls (pause)="mostrarIconos()" (playing)="esconderIconos()" style="height: 340px; width: 803px" >
-        <source [src]="rutavideo" type="video/mp4">
-        Tu navegador no implementa el elemento <code>video</code>.
-      </video>
-    </ion-col>
-  </ion-row>
-  <br>
-  <ion-row *ngIf="mostrarBotones" style="background-color: #6F809C; border-top-right-radius: 25px; border-top-left-radius: 25px; margin-left: 60px;
-  margin-right: 60px; ">
-    <ion-col style="margin-left: 30px">
-        <ion-fab-button *ngIf="opt=='visita'" color="visita" (click)="cambiarVideo('visita')" class="fabicons">
-      <img src="../../assets/imgs/INSUMOS-08.png">
-    </ion-fab-button>
-        <ion-fab-button *ngIf="opt!='visita'" color="blanco" (click)="cambiarVideo('visita')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-02.png">
-        </ion-fab-button>
-        <br></ion-col>
-    <ion-col>
-        <ion-fab-button *ngIf="opt=='cesco'" color="cesco" (click)="cambiarVideo('cesco')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-09.png">
-        </ion-fab-button>
-        <ion-fab-button *ngIf="opt!='cesco'" color="blanco" (click)="cambiarVideo('cesco')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-03.png">
-        </ion-fab-button>
-        <br></ion-col>
-    <ion-col>
-        <ion-fab-button *ngIf="opt=='casleo'" color="casleo" (click)="cambiarVideo('casleo')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-10.png">
-        </ion-fab-button>
-        <ion-fab-button *ngIf="opt!='casleo'" color="blanco" (click)="cambiarVideo('casleo')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-04.png">
-        </ion-fab-button>
-        <br></ion-col>
-    <ion-col>
-        <ion-fab-button *ngIf="opt=='pampa'" color="pampa" (click)="cambiarVideo('pampa')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-11.png">
-        </ion-fab-button>
-        <ion-fab-button *ngIf="opt!='pampa'" color="blanco" (click)="cambiarVideo('pampa')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-05.png">
-        </ion-fab-button>
-        <br></ion-col>
-    <ion-col>
-        <ion-fab-button *ngIf="opt=='mineria'" color="mineria" (click)="cambiarVideo('mineria')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-12.png">
-        </ion-fab-button>
-        <ion-fab-button *ngIf="opt!='mineria'" color="blanco" (click)="cambiarVideo('mineria')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-06.png">
-        </ion-fab-button>
-        <br></ion-col>
-    <ion-col size="1.5" class="ion-align-items-center">
-        <ion-fab-button *ngIf="opt=='pachon'" color="pachon" (click)="cambiarVideo('pachon')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-13.png">
-        </ion-fab-button>
-        <ion-fab-button *ngIf="opt!='pachon'" color="blanco" (click)="cambiarVideo('pachon')" class="fabicons">
-            <img src="../../assets/imgs/INSUMOS-07.png">
-        </ion-fab-button>
-        <br></ion-col>
-  </ion-row>
-
-<!--    Video siendo reproducido-->
-
-    <ion-row *ngIf="!mostrarBotones" style="height: 400px; width: 100%; margin-top: -20px; margin-left: 27px">
-        <ion-col class="videocol">
-            <video #videoElement controls (pause)="mostrarIconos()" (playing)="esconderIconos()" style="height: 400px; width: 803px" >
-                <source [src]="rutavideo" type="video/mp4">
-                Tu navegador no implementa el elemento <code>video</code>.
-            </video>
+    <ion-grid style="max-width: 1024px; max-height: 545px;padding-bottom: 0px !important; position: relative !important; overflow: hidden;">
+      <ion-row  class="ion-justify-content-center" >
+        <p style="color: #f3f3f3; font-size: 20px; width: 814px; padding-bottom: 10px;"><b *ngIf="mostrarBotones">{{title}}</b></p>
+      </ion-row>
+      <ion-row  class="ion-justify-content-center" style=" margin-top: -20px; ">
+        <!-- <ion-col class="videocol"> -->
+        <!-- <div style="width: 814px;"> -->
+          <video #videoElement controls (pause)="mostrarIconos()" (playing)="esconderIconos()" [style.height]="mostrarBotones? '360px' : '436px'" style="width: 814px; " >
+            <source [src]="rutavideo" type="video/mp4">
+            Tu navegador no implementa el elemento <code>video</code>.
+          </video>
+        <!-- </div> -->
+      </ion-row>
+      <br>
+      <ion-row [style.margin-top]="mostrarBotones? '0px' : '27px'" style="height: 110px; background-color: #6F809C; border-radius: 25px 25px 0px 0px; margin-left: 70px; margin-right: 70px; ">
+        <ion-col style="margin-left: 30px">
+            <ion-fab-button id="visita"  [color]="opt=='visita'? 'visita' : 'blanco'" (click)="cambiarVideo('visita')" class="fabicons" style="width: 60px; height:60px;">
+              <img id="visita-img" [src]="opt=='visita'? '../../assets/imgs/INSUMOS-08.png' : '../../assets/imgs/INSUMOS-02.png' ">
+            </ion-fab-button>
         </ion-col>
-    </ion-row>
-    <br>
-    <ion-row *ngIf="!mostrarBotones" style="background-color: #6F809C; border-top-right-radius: 25px; border-top-left-radius: 25px; margin-left: 60px;
-  margin-right: 60px; height: 30px!important; "></ion-row>
+        <ion-col>
+            <ion-fab-button [color]="opt=='cesco'? 'cesco': 'blanco'" (click)="cambiarVideo('cesco')" class="fabicons"  style="width: 60px; height:60px;">
+                <img [src]="opt=='cesco'? '../../assets/imgs/INSUMOS-09.png': '../../assets/imgs/INSUMOS-03.png'">
+            </ion-fab-button>
+        </ion-col>
+        <ion-col>
+            <ion-fab-button [color]="opt=='casleo'? 'casleo' : 'blanco'" (click)="cambiarVideo('casleo')" class="fabicons" style="width: 60px; height:60px;">
+                <img [src]="opt=='casleo'? '../../assets/imgs/INSUMOS-10.png' : '../../assets/imgs/INSUMOS-04.png' ">
+            </ion-fab-button>
+        </ion-col>
+        <ion-col>
+            <ion-fab-button [color]="opt=='pampa' ? 'pampa' : 'blanco'" (click)="cambiarVideo('pampa')" class="fabicons" style="width: 60px; height:60px;">
+                <img [src]="opt=='pampa'? '../../assets/imgs/INSUMOS-11.png' : '../../assets/imgs/INSUMOS-05.png' ">
+            </ion-fab-button>
+        </ion-col>
+        <ion-col>
+            <ion-fab-button [color]="opt=='mineria' ? 'mineria' : 'blanco'" (click)="cambiarVideo('mineria')" class="fabicons" style="width: 60px; height:60px;">
+                <img [src]="opt=='mineria' ? '../../assets/imgs/INSUMOS-12.png' : '../../assets/imgs/INSUMOS-06.png'">
+            </ion-fab-button>
+        </ion-col>
+        <ion-col size="1.5" class="ion-align-items-center">
+            <ion-fab-button [color]="opt=='pachon'? 'pachon' : 'blanco'" (click)="cambiarVideo('pachon')" class="fabicons" style="width: 60px; height:60px;">
+                <img [src]="opt=='pachon'? '../../assets/imgs/INSUMOS-13.png' : '../../assets/imgs/INSUMOS-07.png'">
+            </ion-fab-button>
+        </ion-col>
+      </ion-row>
 
-<!--  <ion-row>-->
-<!--    <ion-col class="labelcol"><ion-label>Visita Guiada</ion-label></ion-col>-->
-<!--    <ion-col class="labelcol"><ion-label>Conocé el CESCO</ion-label></ion-col>-->
-<!--    <ion-col class="labelcol"><ion-label>Conocé el CASLEO</ion-label></ion-col>-->
-<!--    <ion-col class="labelcol"><ion-label>Parque Nacional El Leoncito</ion-label></ion-col>-->
-<!--    <ion-col class="labelcol"><ion-label>Minería en San Juan</ion-label></ion-col>-->
-<!--    <ion-col class="labelcol"><ion-label>El Pachón</ion-label></ion-col>-->
-<!--  </ion-row>-->
-</ion-grid></div>
+    </ion-grid>
+  </div>
 </ion-content>

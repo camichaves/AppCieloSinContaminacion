@@ -18,9 +18,7 @@
       <ion-menu-toggle>
         <ion-item (click)="cambiarCategoria('cesco')" style="border-bottom: 1px solid black; margin-left: 60px">
           <ion-fab-button color="dark" class="fabicons">
-            <ion-img class="iconos" *ngIf="categoria=='cesco'" src="../../assets/imgs/cesco-color.svg">
-            </ion-img>
-            <ion-img class="iconos" *ngIf="categoria!='cesco'" src="../../assets/imgs/cesco-blanco.svg">
+            <ion-img class="iconos"  [src]="categoria=='cesco'? '../../assets/imgs/cesco-color.svg' : '../../assets/imgs/cesco-blanco.svg' ">
             </ion-img>
           </ion-fab-button>
           <p><b>Conocé el CESCO</b><br>Inlcuye entrevista</p>
@@ -50,7 +48,7 @@
       </ion-menu-toggle>
       <ion-menu-toggle>
         <ion-item (click)="cambiarCategoria('mineria')" style="border-bottom: 1px solid black; margin-left: 60px">
-          <ion-fab-button color="medium" class="fabicons">
+          <ion-fab-button  class="fabicons">
             <ion-img class="iconos" *ngIf="categoria=='mineria'" src="../../assets/imgs/mineria-color.svg">
             </ion-img>
             <ion-img class="iconos" *ngIf="categoria!='mineria'" src="../../assets/imgs/mineria-blanco.svg">
@@ -60,17 +58,15 @@
         </ion-item>
       </ion-menu-toggle>
       <ion-menu-toggle>
-        <ion-item (click)="cambiarCategoria('pachon')" style="border-bottom: transparent!important; margin-left: 60px">
-          <ion-fab-button color="medium" class="fabicons">
-            <ion-img class="iconos" *ngIf="categoria=='pachon'" src="../../assets/imgs/pachon-color.svg">
-            </ion-img>
-            <ion-img class="iconos" *ngIf="categoria!='pachon'" src="../../assets/imgs/pachon-blanco.svg">
+        <ion-item (click)="cambiarCategoria('pachon')" style="border-bottom: 5px solid white; margin-left: 60px">
+          <ion-fab-button color="medium" class="fabicons" >
+            <ion-img class="iconos" [src]="categoria=='pachon' ? '../../assets/imgs/pachon-color.svg' : '../../assets/imgs/pachon-blanco.svg'">
             </ion-img>
           </ion-fab-button>
-          <p><b>Minería en San Juan</b><br>Video</p>
+          <p><b>El pachón</b><br>Galería de fotos</p>
         </ion-item>
       </ion-menu-toggle>
     </ion-list>
   </div>
 </ion-menu>
-<app-home  [opt]="categoria" (opcion)="cambiaCategoria($event)" id="home"></app-home>
+<app-home  [opt]="categoria" [title]="title" (opcion)="cambiaCategoria($event)" id="home"></app-home>

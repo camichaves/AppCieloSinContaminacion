@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {ComponentsModule} from './components/components.module';
 import {CargandoPageModule} from './cargando/cargando.module';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +21,8 @@ import {CargandoPageModule} from './cargando/cargando.module';
   providers: [
     StatusBar,
     SplashScreen,
+    NativePageTransitions,
+    ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

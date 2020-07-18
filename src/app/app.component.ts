@@ -3,6 +3,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+// import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
