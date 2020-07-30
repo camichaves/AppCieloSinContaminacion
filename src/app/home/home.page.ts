@@ -1,6 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {MenuController} from '@ionic/angular';
+import {MenuController,} from '@ionic/angular';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 @Component({
   selector: 'app-home',
@@ -20,19 +21,23 @@ export class HomePage implements OnInit{
     'pachon' : 'El pachón'
   };
 
+  
+
   @ViewChild('videoElement', { static: false}) video: ElementRef;
   @Output() opcion = new EventEmitter();
   @Input() opt;
   @Input() title;
   mostrarBotones = true;
   constructor(private route: ActivatedRoute,
-              private menuController: MenuController) {
+              private menuController: MenuController,
+              private webview: WebView) {
           this.title ="Visita guiada";
               }
 
   cambiarVideo(opt: string) {
     this.opt = opt;
     this.title =this.titles[opt];
+    this.rutavideo = this.webview.convertFileSrc('../../assets/imgs/video.mp4');
     console.log('Cambiando de categoria a :' + opt);
   }
   ngOnInit(): void {

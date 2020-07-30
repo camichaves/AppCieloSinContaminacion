@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true" >
   <ion-header>
-    <ion-toolbar style=" max-height: 55px;">
+    <ion-toolbar style=" max-height: 50px;">
       <ion-buttons>
         <ion-menu-button (click)="mandarEvento()" style="margin-left: 90px;" color="medium" menu="first">
           <img src="../../assets/icon/menu-toggle.png" alt="">
@@ -10,47 +10,52 @@
     </ion-toolbar>
   </ion-header>
   <div class="gradiente">
-    <ion-grid style="max-width: 1024px; max-height: 545px;padding-bottom: 0px !important; position: relative !important; overflow: hidden;">
+    <ion-grid style="max-width: 1024px; max-height: 550px; position: relative !important; overflow: hidden;">
       <ion-row  class="ion-justify-content-center" >
         <p style="color: #f3f3f3; font-size: 20px; width: 814px; padding-bottom: 10px;"><b *ngIf="mostrarBotones">{{title}}</b></p>
       </ion-row>
       <ion-row  class="ion-justify-content-center" style=" margin-top: -20px; ">
         <!-- <ion-col class="videocol"> -->
-        <!-- <div style="width: 814px;"> -->
-          <video #videoElement controls (pause)="mostrarIconos()" (playing)="esconderIconos()" [style.height]="mostrarBotones? '360px' : '436px'" style="width: 814px; " >
+        <div style="width: 814px;">
+          <video #videoElement controls (pause)="mostrarIconos()" (playing)="esconderIconos()" [style.height]="mostrarBotones? '360px' : '450px'" style="width: 814px; " >
             <source [src]="rutavideo" type="video/mp4">
             Tu navegador no implementa el elemento <code>video</code>.
           </video>
-        <!-- </div> -->
+        </div>  
       </ion-row>
+      <ion-row *ngIf="!mostrarBotones" class="ion-justify-content-center" (click)="mostrarIconos()" >
+        <div style="background-color: azure; height: 2px; width: 46px; margin-top: 20px; border-radius: 1px;"></div>
+      </ion-row>
+      
       <br>
-      <ion-row [style.margin-top]="mostrarBotones? '0px' : '27px'" style="height: 110px; background-color: #6F809C; border-radius: 25px 25px 0px 0px; margin-left: 70px; margin-right: 70px; ">
+      <ion-row [style.margin-top]="mostrarBotones? '-5px' : '-7px'" style="height: 150px; background-color: #6F809C; border-radius: 25px 25px 0px 0px; margin-left: 70px; margin-right: 70px; ">
+       
         <ion-col style="margin-left: 30px">
             <ion-fab-button id="visita"  [color]="opt=='visita'? 'visita' : 'blanco'" (click)="cambiarVideo('visita')" class="fabicons" style="width: 60px; height:60px;">
               <img id="visita-img" [src]="opt=='visita'? '../../assets/imgs/INSUMOS-08.png' : '../../assets/imgs/INSUMOS-02.png' ">
             </ion-fab-button>
         </ion-col>
-        <ion-col>
+        <ion-col class="col">
             <ion-fab-button [color]="opt=='cesco'? 'cesco': 'blanco'" (click)="cambiarVideo('cesco')" class="fabicons"  style="width: 60px; height:60px;">
                 <img [src]="opt=='cesco'? '../../assets/imgs/INSUMOS-09.png': '../../assets/imgs/INSUMOS-03.png'">
             </ion-fab-button>
         </ion-col>
-        <ion-col>
+        <ion-col class="col">
             <ion-fab-button [color]="opt=='casleo'? 'casleo' : 'blanco'" (click)="cambiarVideo('casleo')" class="fabicons" style="width: 60px; height:60px;">
                 <img [src]="opt=='casleo'? '../../assets/imgs/INSUMOS-10.png' : '../../assets/imgs/INSUMOS-04.png' ">
             </ion-fab-button>
         </ion-col>
-        <ion-col>
+        <ion-col class="col">
             <ion-fab-button [color]="opt=='pampa' ? 'pampa' : 'blanco'" (click)="cambiarVideo('pampa')" class="fabicons" style="width: 60px; height:60px;">
                 <img [src]="opt=='pampa'? '../../assets/imgs/INSUMOS-11.png' : '../../assets/imgs/INSUMOS-05.png' ">
             </ion-fab-button>
         </ion-col>
-        <ion-col>
+        <ion-col class="col">
             <ion-fab-button [color]="opt=='mineria' ? 'mineria' : 'blanco'" (click)="cambiarVideo('mineria')" class="fabicons" style="width: 60px; height:60px;">
                 <img [src]="opt=='mineria' ? '../../assets/imgs/INSUMOS-12.png' : '../../assets/imgs/INSUMOS-06.png'">
             </ion-fab-button>
         </ion-col>
-        <ion-col size="1.5" class="ion-align-items-center">
+        <ion-col  class="col" >
             <ion-fab-button [color]="opt=='pachon'? 'pachon' : 'blanco'" (click)="cambiarVideo('pachon')" class="fabicons" style="width: 60px; height:60px;">
                 <img [src]="opt=='pachon'? '../../assets/imgs/INSUMOS-13.png' : '../../assets/imgs/INSUMOS-07.png'">
             </ion-fab-button>

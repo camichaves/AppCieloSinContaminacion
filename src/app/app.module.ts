@@ -13,6 +13,11 @@ import {CargandoPageModule} from './cargando/cargando.module';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
+import { AndroidFullScreen } from '@ionic-native/android-full-screen/ngx';
+
+
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +28,9 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     SplashScreen,
     NativePageTransitions,
     ScreenOrientation,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AndroidFullScreen,
+    WebView
   ],
   bootstrap: [AppComponent]
 })
