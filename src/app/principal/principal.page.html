@@ -21,7 +21,7 @@
             <ion-img class="iconos"  [src]="categoria=='cesco'? '../../assets/imgs/cesco-color.svg' : '../../assets/imgs/cesco-blanco.svg' ">
             </ion-img>
           </ion-fab-button>
-          <p><b>Conocé el CESCO</b><br>Inlcuye entrevista</p>
+          <p><b>Conocé el CESCO</b><br>Video educativo</p>
         </ion-item>
       </ion-menu-toggle>
       <ion-menu-toggle>
@@ -32,7 +32,7 @@
             <ion-img class="iconos" *ngIf="categoria!='casleo'" src="../../assets/imgs/casleo-blanco.svg">
             </ion-img>
           </ion-fab-button>
-          <p><b>Conocé el CASLEO</b><br>Inlcuye entrevista</p>
+          <p><b>Conocé el CASLEO</b><br>Video educativo</p>
         </ion-item>
       </ion-menu-toggle>
       <ion-menu-toggle>
@@ -43,7 +43,7 @@
             <ion-img class="iconos" *ngIf="categoria!='pampa'" src="../../assets/imgs/pampa-blanco.svg">
             </ion-img>
           </ion-fab-button>
-          <p><b>Conocé La Pampa El Leoncito</b><br>Inlcuye entrevista</p>
+          <p><b>PN El Leoncito</b><br>Video educativo</p>
         </ion-item>
       </ion-menu-toggle>
       <ion-menu-toggle>
@@ -58,7 +58,7 @@
         </ion-item>
       </ion-menu-toggle>
       <ion-menu-toggle>
-        <ion-item (click)="cambiarCategoria('pachon')" style="border-bottom: 5px solid white; margin-left: 60px">
+        <ion-item (click)="cambiarCategoria('pachon')" style="margin-left: 60px">
           <ion-fab-button color="medium" class="fabicons" >
             <ion-img class="iconos" [src]="categoria=='pachon' ? '../../assets/imgs/pachon-color.svg' : '../../assets/imgs/pachon-blanco.svg'">
             </ion-img>
