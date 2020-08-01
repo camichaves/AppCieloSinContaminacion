@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild, OnInit} from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,7 +12,7 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen/ngx';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   cargandoHidden = true;
   @ViewChild('splash', { static: false}) splash: ElementRef;
   constructor(
@@ -21,17 +21,9 @@ export class AppComponent {
     private statusBar: StatusBar,
     private screenOrientation: ScreenOrientation,
     private androidFullScreen: AndroidFullScreen
-  ) {
-    this.initializeApp();
-  }
-
-  initializeApp() {
-    this.androidFullScreen.isImmersiveModeSupported()
-    .then(() => {
-      console.log('Immersive mode supported');
-      this.androidFullScreen.immersiveMode();
-    })
-    .catch(err => console.log(err));
+  ) { }
+  
+  ngOnInit(){
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -39,7 +31,15 @@ export class AppComponent {
       
       setTimeout(() => {
         this.cargandoHidden = false;
-      }, 6000);
+      }, 8000);
     });
+
+    this.androidFullScreen.isImmersiveModeSupported()
+    .then(() => {
+      console.log('Immersive mode supported');
+      this.androidFullScreen.immersiveMode();
+    })
+    .catch(err => console.log(err));
+
   }
 }

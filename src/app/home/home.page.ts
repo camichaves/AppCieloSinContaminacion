@@ -11,7 +11,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 export class HomePage implements OnInit{
 
   rutaimg = '../../assets/imgs/video.PNG';
-  rutavideo = '../../assets/imgs/video.mp4';
+  
   titles = {
     'visita':'Visita guiada',
     'cesco' : 'Conocé el CESCO',
@@ -20,6 +20,14 @@ export class HomePage implements OnInit{
     'mineria': 'Minería en San Juan',
     'pachon' : 'El pachón'
   };
+  urls = {
+    'visita':'../../assets/visita360.mov',
+    'cesco' : '../../assets/cesco.mp4',
+    'casleo': '../../assets/casleo.mp4',
+    'pampa' : '../../assets/leoncito.mp4',
+    'mineria': '../../assets/mineria.mp4',
+    'pachon' : '../../assets/video.mp4'
+  }
 
   
 
@@ -27,17 +35,20 @@ export class HomePage implements OnInit{
   @Output() opcion = new EventEmitter();
   @Input() opt;
   @Input() title;
+  @Input() rutavideo;
   mostrarBotones = true;
   constructor(private route: ActivatedRoute,
               private menuController: MenuController,
               private webview: WebView) {
-          this.title ="Visita guiada";
-              }
+              this.title ="Visita guiada";
+              this.rutavideo = '../../assets/imgs/video.mp4';
+            }
 
   cambiarVideo(opt: string) {
     this.opt = opt;
     this.title =this.titles[opt];
-    this.rutavideo = this.webview.convertFileSrc('../../assets/imgs/video.mp4');
+    // this.rutavideo = this.webview.convertFileSrc(this.urls[opt]);
+    this.rutavideo = this.urls[opt];
     console.log('Cambiando de categoria a :' + opt);
   }
   ngOnInit(): void {

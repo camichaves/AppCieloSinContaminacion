@@ -17,9 +17,8 @@
       <ion-row  class="ion-justify-content-center" style=" margin-top: -20px; ">
         <!-- <ion-col class="videocol"> -->
         <div style="width: 814px;">
-          <video #videoElement controls (pause)="mostrarIconos()" (playing)="esconderIconos()" [style.height]="mostrarBotones? '360px' : '450px'" style="width: 814px; " >
-            <source [src]="rutavideo" type="video/mp4">
-            Tu navegador no implementa el elemento <code>video</code>.
+          <video #videoElement controls [src]="rutavideo" (pause)="mostrarIconos()" (playing)="esconderIconos()" [style.height]="mostrarBotones? '360px' : '450px'" style="width: 814px; " >
+            
           </video>
         </div>  
       </ion-row>

@@ -7,6 +7,8 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 })
 export class PrincipalPage implements OnInit {
   categoria;
+  rutaVideo;
+
   title = 'Visita guiada';
   titles = {
     'visita':'Visita guiada',
@@ -15,6 +17,14 @@ export class PrincipalPage implements OnInit {
     'pampa' : 'Conocé La Pampa El Leoncito',
     'mineria': 'Minería en San Juan',
     'pachon' : 'El pachón'
+  }
+  urls = {
+    'visita':'../../assets/visita360.mov',
+    'cesco' : '../../assets/cesco.mp4',
+    'casleo': '../../assets/casleo.mp4',
+    'pampa' : '../../assets/leoncito.mp4',
+    'mineria': '../../assets/mineria.mp4',
+    'pachon' : '../../assets/video.mp4'
   }
   
   constructor() { }
@@ -28,6 +38,7 @@ export class PrincipalPage implements OnInit {
 
   cambiarCategoria(cat: string) {
     this.title =this.titles[cat];
+    this.rutaVideo = this.urls[cat]
     this.categoria = cat;
   }
 }
