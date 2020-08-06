@@ -7,7 +7,7 @@ ion-content{
 }
 
 .my-custom-menu {
-  --width: 750px;
+  --width: 410px;
 }
 
 #container {
@@ -34,5 +34,10 @@ p{
 
 .iconos{
   border: 1px solid #000000!important; border-radius: 30px!important;
+}
+
+.items{
+  border-bottom: 1px solid #0C1220; 
+  margin: 0 50px 0 50px
 }
 

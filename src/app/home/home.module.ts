@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import {ComponentsModule} from '../components/components.module';
+import { VjsPlayerComponent } from '../vjs-player/vjs-player.component';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import {ComponentsModule} from '../components/components.module';
     exports: [
         HomePage
     ],
-    declarations: [HomePage]
+    declarations: [HomePage,VjsPlayerComponent]
 })
 export class HomePageModule {}

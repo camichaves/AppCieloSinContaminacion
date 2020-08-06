@@ -15,7 +15,7 @@ export class PrincipalPage implements OnInit {
     'cesco' : 'Conocé el CESCO',
     'casleo': 'Conocé el CASLEO',
     'pampa' : 'Conocé La Pampa El Leoncito',
-    'mineria': 'Minería en San Juan',
+    'mineria': 'Minería',
     'pachon' : 'El pachón'
   }
   urls = {

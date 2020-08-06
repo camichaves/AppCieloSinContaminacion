@@ -25,21 +25,19 @@ export class AppComponent implements OnInit{
   
   ngOnInit(){
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      //this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+      // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
       
-      setTimeout(() => {
-        this.cargandoHidden = false;
-      }, 8000);
+      // setTimeout(() => {
+      //   this.cargandoHidden = false;
+      // }, 8000);
+      this.androidFullScreen.isImmersiveModeSupported()
+      .then(() => {
+        console.log('Immersive mode supported');
+        this.androidFullScreen.immersiveMode();
+      })
+      .catch(err => console.log(err));
     });
-
-    this.androidFullScreen.isImmersiveModeSupported()
-    .then(() => {
-      console.log('Immersive mode supported');
-      this.androidFullScreen.immersiveMode();
-    })
-    .catch(err => console.log(err));
-
   }
 }

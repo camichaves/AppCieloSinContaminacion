@@ -1,62 +1,101 @@
 <ion-content [fullscreen]="true" >
   <ion-header>
-    <ion-toolbar style=" max-height: 50px;">
-      <ion-buttons>
-        <ion-menu-button (click)="mandarEvento()" style="margin-left: 90px;" color="medium" menu="first">
+    <ion-toolbar style="max-height: 40px;">
+      <ion-buttons style="max-height: 40px;">
+        <ion-menu-button (click)="mandarEvento()" style="margin-left: 90px; margin-top: -18px;" color="medium" menu="first">
           <img src="../../assets/icon/menu-toggle.png" alt="">
         </ion-menu-button>
       </ion-buttons>
-      <ion-label color="medium" slot="end" style="margin-right: 90px; font-family: Titillium">POR UN CIELO SIN CONTAMINACION</ion-label>
+      <ion-label color="medium" slot="end" style="margin-top: -15px ;margin-right: 90px; font-family: Titillium">POR UN CIELO SIN CONTAMINACION</ion-label>
     </ion-toolbar>
   </ion-header>
   <div class="gradiente">
-    <ion-grid style="max-width: 1024px; max-height: 550px; position: relative !important; overflow: hidden;">
-      <ion-row  class="ion-justify-content-center" >
-        <p style="color: #f3f3f3; font-size: 20px; width: 814px; padding-bottom: 10px;"><b *ngIf="mostrarBotones">{{title}}</b></p>
+    <ion-grid style="max-width: 1024px; max-height: 560px; position: relative !important; overflow: hidden;">
+      <ion-row  style=" font-size: 10px; color:white; margin: 0px 87px; height: 48px;" >
+          <ion-col><p style="color: #f3f3f3; font-size: 20px;  margin-top: 5px;"><b>{{title}}</b></p></ion-col>
+          <ion-col *ngIf="this.opt=='mineria'" class="menuMina" [class]="this.videoMina==1? 'marcado': ''" (click)="this.videoMina=1" >Cobre y <br> alimentación </ion-col>
+          <ion-col *ngIf="this.opt=='mineria'" class="menuMina" [class]="this.videoMina==2? 'marcado': ''" (click)="this.videoMina=2" style="min-width: 108px !important;" >Cobre y <br> energía sostenible </ion-col>
+          <ion-col *ngIf="this.opt=='mineria'" class="menuMina" [class]="this.videoMina==3? 'marcado': ''" (click)="this.videoMina=3" >Cobre y <br> medio ambiente </ion-col>
+          <ion-col *ngIf="this.opt=='mineria'" class="menuMina" [class]="this.videoMina==4? 'marcado': ''" (click)="this.videoMina=4" style="max-width: 65px !important;" >Cobre y <br> salud </ion-col>
+          <ion-col *ngIf="this.opt=='mineria'" class="menuMina" [class]="this.videoMina==5? 'marcado': ''" (click)="this.videoMina=5" >Cobre y <br> tecnología </ion-col>
+          <ion-col *ngIf="this.opt=='mineria'" class="menuMina" [class]="this.videoMina==6? 'marcado': ''" (click)="this.videoMina=6" style="max-width: 80px !important;"> La tierra es <br> de todos </ion-col>
+          <ion-col *ngIf="this.opt=='mineria'" class="menuMina" [class]="this.videoMina==7? 'marcado': ''" (click)="this.videoMina=7" style="min-width: 108px !important;" >Historia de <br> los usos del cobre </ion-col>
+          <ion-col *ngIf="this.opt=='mineria'" class="menuMina" [class]="this.videoMina==8? 'marcado': ''" (click)="this.videoMina=8" >DFS y <br> la astronomía </ion-col>
       </ion-row>
-      <ion-row  class="ion-justify-content-center" style=" margin-top: -20px; ">
+      <ion-row  class="ion-justify-content-center">
         <!-- <ion-col class="videocol"> -->
-        <div style="width: 814px;">
-          <video #videoElement controls [src]="rutavideo" (pause)="mostrarIconos()" (playing)="esconderIconos()" [style.height]="mostrarBotones? '360px' : '450px'" style="width: 814px; " >
-          </video>
+        <div style="width: 850px;">
+          <!-- <video #videoElement autoplay="true" controls *ngIf="this.opt!='visita'" [src]="rutavideo" (pause)="mostrarIconos()" (playing)="esconderIconos()" [style.height]="mostrarBotones? '382px' : '450px'" style="width: 850px; " ></video> -->
+          <app-vjs-player *ngIf="this.opt=='visita'"   [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/tomas360.mp4', type: 'video/mp4' }],poster: '../../assets/poster.jpg',  height:'382' ,width: '850', video360: true}"> </app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='cesco'"    [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/cesco.mp4'    , type: 'video/mp4' }],poster: '../../assets/poster_cesco.JPG',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='casleo'"   [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/casleo.mp4'   , type: 'video/mp4' }],poster: '../../assets/poster_casleo.JPG',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='pampa'"    [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/leoncito.mp4' , type: 'video/mp4' }],poster: '../../assets/poster_leoncito.JPG',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='mineria' && this.videoMina==1"  [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/videos/mineria_1.mp4'  , type: 'video/mp4' }],poster: '../../assets/posters/mineria_1.jpg',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='mineria' && this.videoMina==2"  [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/videos/mineria_2.mp4'  , type: 'video/mp4' }],poster: '../../assets/posters/mineria_2.jpg',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='mineria' && this.videoMina==3"  [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/videos/mineria_3.mp4'  , type: 'video/mp4' }],poster: '../../assets/posters/mineria_3.jpg',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='mineria' && this.videoMina==4"  [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/videos/mineria_4.mp4'  , type: 'video/mp4' }],poster: '../../assets/posters/mineria_4.jpg',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='mineria' && this.videoMina==5"  [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/videos/mineria_5.mp4'  , type: 'video/mp4' }],poster: '../../assets/posters/mineria_5.jpg',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='mineria' && this.videoMina==6"  [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/videos/mineria_6.mp4'  , type: 'video/mp4' }],poster: '../../assets/posters/mineria_6.JPG',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='mineria' && this.videoMina==7"  [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/videos/mineria_7.mp4'  , type: 'video/mp4' }],poster: '../../assets/posters/mineria_7.jpg',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='mineria' && this.videoMina==8"  [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/videos//mineria_8.mp4' , type: 'video/mp4' }],poster: '../../assets/poster/mineria_8.jpg',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+          <app-vjs-player *ngIf="this.opt=='pachon'"   [options]="{ muted: false, controls: true, sources: [{ src: '../../assets/mineria.mp4'  , type: 'video/mp4' }],poster: '../../assets/poster.jpg',  height:'382' ,width: '850', video360: false}"></app-vjs-player>
+
         </div>  
       </ion-row>
-      <ion-row *ngIf="!mostrarBotones" class="ion-justify-content-center" (click)="mostrarIconos()" >
+      <ion-row *ngIf="!mostrarBotones" class="ion-justify-content-center" (click)="mostrarIconos(undefined)" >
         <div style="background-color: azure; height: 2px; width: 46px; margin-top: 20px; border-radius: 1px;"></div>
       </ion-row>
       
       <br>
-      <ion-row [style.margin-top]="mostrarBotones? '-5px' : '-7px'" style="height: 150px; background-color: rgba(36, 36, 36, 0.5); border-radius: 25px 25px 0px 0px; margin-left: 70px; margin-right: 70px; ">
+      <ion-row [style.margin-top]="mostrarBotones? '-5px' : '-7px'" style="height: 108px; background-color: rgba(0, 0, 0, 0.3); border-radius: 25px 25px 0px 0px; margin-left: 70px; margin-right: 70px; ">
        
         <ion-col style="margin-left: 30px">
-            <ion-fab-button id="visita"  [color]="opt=='visita'? 'visita' : 'blanco'" (click)="cambiarVideo('visita')" class="fabicons" style="width: 60px; height:60px;">
-              <img id="visita-img" [src]="opt=='visita'? '../../assets/imgs/INSUMOS-08.png' : '../../assets/imgs/INSUMOS-02.png' ">
+            <ion-fab-button class="fabicons" [color]="opt=='visita'? 'visita' : 'blanco'" (click)="cambiarVideo('visita')"  >
+              <img [src]="opt=='visita'? '../../assets/imgs/INSUMOS-08.png' : '../../assets/imgs/INSUMOS-02.png' ">
             </ion-fab-button>
+            <div class="menu-text" >
+              Visita Guiada
+            </div>
         </ion-col>
         <ion-col class="col">
-            <ion-fab-button [color]="opt=='cesco'? 'cesco': 'blanco'" (click)="cambiarVideo('cesco')" class="fabicons"  style="width: 60px; height:60px;">
+            <ion-fab-button class="fabicons" [color]="opt=='cesco'? 'cesco': 'blanco'" (click)="cambiarVideo('cesco')"   >
                 <img [src]="opt=='cesco'? '../../assets/imgs/INSUMOS-09.png': '../../assets/imgs/INSUMOS-03.png'">
             </ion-fab-button>
+            <div class="menu-text" >
+              Conocé el CESCO
+            </div>
         </ion-col>
         <ion-col class="col">
-            <ion-fab-button [color]="opt=='casleo'? 'casleo' : 'blanco'" (click)="cambiarVideo('casleo')" class="fabicons" style="width: 60px; height:60px;">
+            <ion-fab-button class="fabicons" [color]="opt=='casleo'? 'casleo' : 'blanco'" (click)="cambiarVideo('casleo')" >
                 <img [src]="opt=='casleo'? '../../assets/imgs/INSUMOS-10.png' : '../../assets/imgs/INSUMOS-04.png' ">
             </ion-fab-button>
+            <div class="menu-text" >
+              Conocé el CASLEO
+            </div>
         </ion-col>
-        <ion-col class="col">
-            <ion-fab-button [color]="opt=='pampa' ? 'pampa' : 'blanco'" (click)="cambiarVideo('pampa')" class="fabicons" style="width: 60px; height:60px;">
+        <ion-col class="col"> 
+            <ion-fab-button class="fabicons" [color]="opt=='pampa' ? 'pampa' : 'blanco'" (click)="cambiarVideo('pampa')"  >
                 <img [src]="opt=='pampa'? '../../assets/imgs/INSUMOS-11.png' : '../../assets/imgs/INSUMOS-05.png' ">
             </ion-fab-button>
+            <div class="menu-text" >
+              PN El Leoncito
+            </div>
         </ion-col>
         <ion-col class="col">
-            <ion-fab-button [color]="opt=='mineria' ? 'mineria' : 'blanco'" (click)="cambiarVideo('mineria')" class="fabicons" style="width: 60px; height:60px;">
+            <ion-fab-button class="fabicons" [color]="opt=='mineria' ? 'mineria' : 'blanco'" (click)="cambiarVideo('mineria')"  >
                 <img [src]="opt=='mineria' ? '../../assets/imgs/INSUMOS-12.png' : '../../assets/imgs/INSUMOS-06.png'">
             </ion-fab-button>
+            <div class="menu-text" >
+              Minería
+            </div>
         </ion-col>
         <ion-col  class="col" >
-            <ion-fab-button [color]="opt=='pachon'? 'pachon' : 'blanco'" (click)="cambiarVideo('pachon')" class="fabicons" style="width: 60px; height:60px;">
+            <ion-fab-button class="fabicons" [color]="opt=='pachon'? 'pachon' : 'blanco'" (click)="cambiarVideo('pachon')"  >
                 <img [src]="opt=='pachon'? '../../assets/imgs/INSUMOS-13.png' : '../../assets/imgs/INSUMOS-07.png'">
             </ion-fab-button>
+            <div class="menu-text" >
+              El Pachón
+            </div>
         </ion-col>
       </ion-row>
 

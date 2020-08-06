@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { HolaPageRoutingModule } from './hola-routing.module';
 
 import { HolaPage } from './hola.page';
+import { CargandoPageModule } from '../cargando/cargando.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HolaPageRoutingModule
+    HolaPageRoutingModule,
+    CargandoPageModule
   ],
   declarations: [HolaPage]
 })

@@ -11,17 +11,16 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 export class HomePage implements OnInit{
 
   rutaimg = '../../assets/imgs/video.PNG';
-  
   titles = {
     'visita':'Visita guiada',
     'cesco' : 'Conocé el CESCO',
     'casleo': 'Conocé el CASLEO',
     'pampa' : 'Conocé La Pampa El Leoncito',
-    'mineria': 'Minería en San Juan',
+    'mineria': 'Minería',
     'pachon' : 'El pachón'
   };
   urls = {
-    'visita':'../../assets/visita360.mov',
+    'visita':'../../assets/visita360.mp4',
     'cesco' : '../../assets/cesco.mp4',
     'casleo': '../../assets/casleo.mp4',
     'pampa' : '../../assets/leoncito.mp4',
@@ -36,11 +35,15 @@ export class HomePage implements OnInit{
   @Input() opt;
   @Input() title;
   @Input() rutavideo;
+  @Input() player;
+  @Input() videoMina;
   mostrarBotones = true;
   constructor(private route: ActivatedRoute,
               private menuController: MenuController,
               private webview: WebView) {
               this.title ="Visita guiada";
+              this.opt = 'visita';
+              this.videoMina = 1;
               this.rutavideo = '../../assets/imgs/video.mp4';
             }
 
@@ -59,13 +62,17 @@ export class HomePage implements OnInit{
     this.opcion.emit(this.opt);
   }
 
-  esconderIconos() {
+  esconderIconos(player) {
+    if(player)  this.player = player;
+    this.player.height('450px')
     console.log('Video andando');
     this.mostrarBotones = false;
   }
 
-  mostrarIconos() {
-    console.log('Video no andando');
+  mostrarIconos(player) {
+    if(player)  this.player = player;
+    this.player.height('360px');
+    console.log('Video no andando ');
     this.mostrarBotones = true;
   }
 }

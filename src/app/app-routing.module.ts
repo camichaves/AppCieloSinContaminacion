@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'principal',
     loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalPageModule)
+  },  {
+    path: 'video360',
+    loadChildren: () => import('./video360/video360.module').then( m => m.Video360PageModule)
   },
+
 ];
 
 @NgModule({
